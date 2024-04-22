@@ -1,7 +1,8 @@
-import * as Interface from "interfaces/interfaces-helper/cookie-interfaces/cookie.interface";
+import * as TypeCommon from "@/common";
+import type * as Interface from "interfaces/interfaces-helper/cookie-interfaces/cookie.interface";
 import Cookies from "js-cookie";
 
-//Create and Update
+// Create and Update
 export const __CreateDataCookie = (
   props: Interface.ICreateCookieType
 ): boolean | void => {
@@ -14,35 +15,33 @@ export const __CreateDataCookie = (
     secure: custom?.secure,
   };
   switch (type) {
-    case "object": {
+    case TypeCommon.TYPE_COMMON.DATA_TYPES.OBJECT: {
       return;
     }
-    case "string": {
+    case TypeCommon.TYPE_COMMON.DATA_TYPES.STRING: {
       Cookies.set(key, data, cookieOptions);
       return;
     }
-    case "array": {
+    case TypeCommon.TYPE_COMMON.DATA_TYPES.ARRAY: {
       return;
     }
     default:
-      return;
   }
 };
 
 // Read
 export const __getDataCookie = (props: Interface.ICreateCookieType) => {
   switch (props.type) {
-    case "string": {
+    case TypeCommon.TYPE_COMMON.DATA_TYPES.STRING: {
       return Cookies.get(props?.key);
     }
-    case "object": {
+    case TypeCommon.TYPE_COMMON.DATA_TYPES.OBJECT: {
       return;
     }
-    case "array": {
+    case TypeCommon.TYPE_COMMON.DATA_TYPES.ARRAY: {
       return;
     }
     default:
-      return;
   }
 };
 

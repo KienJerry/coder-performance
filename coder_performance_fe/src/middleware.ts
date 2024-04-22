@@ -1,4 +1,5 @@
-import { NextResponse, NextRequest } from "next/server";
+import type { NextRequest } from "next/server";
+import { NextResponse } from "next/server";
 // import { authenticate } from 'auth-provider'
 
 export function middleware(request: NextRequest) {
@@ -10,7 +11,7 @@ export function middleware(request: NextRequest) {
 
   // If the user is authenticated, continue as normal
   //   if (isAuthenticated) {
-  //     return NextResponse.next()
+  return NextResponse.next();
   //   }
 
   // Redirect to login page if not authenticated
@@ -21,11 +22,11 @@ export const config = {
   matcher: [
     {
       source: "/(pages)",
-      has: [{ type: "cookie", key: "authToken" }], //If authToken exists, will be able to access the following urls
+      has: [{ type: "cookie", key: "authToken" }], // If authToken exists, will be able to access the following urls
     },
     {
       source: "/(login|signup)",
-      missing: [{ type: "cookie", key: "authToken" }], //If authToken doesn't exist , will be able to access the following urls
+      missing: [{ type: "cookie", key: "authToken" }], // If authToken doesn't exist , will be able to access the following urls
     },
   ],
 };

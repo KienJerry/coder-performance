@@ -1,9 +1,9 @@
-import * as Interface from "interfaces/interfaces-helper/local-interfaces/ILocalStorage.interface";
 import * as TypeCommon from "common/type-common/type.common";
+import type * as Interface from "interfaces/interfaces-helper/local-interfaces/ILocalStorage.interface";
 
-//Create and Update
+// Create and Update
 export const __CreateDataLocal = (
-  props: Interface.ICreateLocalType
+  props: Interface.ICreateLocalType,
 ): boolean | void => {
   switch (props.type) {
     case TypeCommon.DATA_TYPES.OBJECT: {
@@ -16,9 +16,9 @@ export const __CreateDataLocal = (
     }
     case TypeCommon.DATA_TYPES.ARRAY: {
       const getExistingData = localStorage.getItem(props.key);
-      let cloneDataArray = getExistingData ? JSON.parse(getExistingData) : [];
+      const cloneDataArray = getExistingData ? JSON.parse(getExistingData) : [];
       const existingItemIndex = cloneDataArray.findIndex(
-        (item: any) => item?.id === props.data?.id
+        (item: any) => item?.id === props.data?.id,
       );
       if (existingItemIndex !== -1) {
         cloneDataArray[existingItemIndex] = props.data;
@@ -29,7 +29,6 @@ export const __CreateDataLocal = (
       return existingItemIndex === -1;
     }
     default:
-      return;
   }
 };
 
@@ -48,7 +47,6 @@ export const __getDataLocal = (props: Interface.ICreateLocalType) => {
       return existingDataString ? JSON.parse(existingDataString) : null;
     }
     default:
-      return;
   }
 };
 
@@ -57,12 +55,12 @@ export const __RemoveItemLocal = (props: Interface.ICreateLocalType) => {
   return localStorage.removeItem(props?.key);
 };
 
-//Remove single item
+// Remove single item
 export const __RemoveSingleItemLocal = (props: Interface.ICreateLocalType) => {
   const getExistingData = localStorage.getItem(`${props.key}`);
-  let cloneDataArray = getExistingData ? JSON.parse(getExistingData) : [];
+  const cloneDataArray = getExistingData ? JSON.parse(getExistingData) : [];
   const existingItemIndex = cloneDataArray.findIndex(
-    (item: any) => item?.id === props?.data?.id
+    (item: any) => item?.id === props?.data?.id,
   );
 
   if (existingItemIndex !== -1) {
