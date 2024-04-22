@@ -1,5 +1,5 @@
 export interface ICreateCookieType {
-  type?: string | object | number | any[];
+  type: string | object | number | any[];
   key: string;
   data?: any;
   custom?: {

@@ -1,32 +1,51 @@
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
-// import { authenticate } from 'auth-provider'
+import { routerAuth, routerNotAuth } from "constants/configMatcher.constants";
+import * as Common from "@/common";
 
 export function middleware(request: NextRequest) {
-  const allCookies = request.cookies;
-  console.log(allCookies, "allCookiesallCookies");
-  if (!allCookies) {
-  }
-  //   const isAuthenticated = authenticate(request)
+  const hasAuthToken = !!request.cookies.get(
+    Common.COOKIE_COMMON.COOKIE_KEYS.AUTH_TOKEN
+  );
 
-  // If the user is authenticated, continue as normal
-  //   if (isAuthenticated) {
+  const pathName = request?.nextUrl?.pathname;
+  const routesToCheck = hasAuthToken ? routerNotAuth : routerAuth;
+
+  const existsURL = CheckPathName(routesToCheck, pathName);
+  if (existsURL) return NextResponse.rewrite(new URL("/404", request.url));
   return NextResponse.next();
-  //   }
-
-  // Redirect to login page if not authenticated
-  // return NextResponse.redirect(new URL("/login", request.url));
 }
 
 export const config = {
   matcher: [
+    { source: "/(login|pages)/:path*" },
     {
-      source: "/(pages)",
-      has: [{ type: "cookie", key: "authToken" }], // If authToken exists, will be able to access the following urls
+      source: "/(pages)/:path*", // If authToken exists, will be able to access the following urls
+      has: [
+        {
+          type: Common.COOKIE_COMMON.COOKIE_KEYS.NAME,
+          key: Common.COOKIE_COMMON.COOKIE_KEYS.AUTH_TOKEN,
+        },
+      ],
     },
     {
-      source: "/(login|signup)",
-      missing: [{ type: "cookie", key: "authToken" }], // If authToken doesn't exist , will be able to access the following urls
+      source: "/(signup)/:path*", // If authToken doesn't exist , will be able to access the following urls
+      missing: [
+        {
+          type: Common.COOKIE_COMMON.COOKIE_KEYS.NAME,
+          key: Common.COOKIE_COMMON.COOKIE_KEYS.AUTH_TOKEN,
+        },
+      ],
     },
   ],
+};
+
+const CheckPathName = (getRouter: any[], pathname: string) => {
+  const getPathName = extractRootPath(pathname);
+  return getRouter.includes(getPathName);
+};
+
+const extractRootPath = (inputPath: string) => {
+  const segments = inputPath.split("/");
+  return segments.length > 1 ? "/" + segments?.[1] : "/";
 };
