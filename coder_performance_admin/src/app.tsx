@@ -1,5 +1,6 @@
 import "./app.css";
 import MyPage from "./components/abc";
+import Hehe from "@components/abc";
 
 function AppPage() {
   return (
@@ -9,6 +10,7 @@ function AppPage() {
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
         <MyPage />
+        <Hehe />
         <a
           className="App-link"
           href="https://reactjs.org"
