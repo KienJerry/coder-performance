@@ -6,7 +6,7 @@ export class LoginUserDto {
 	@ApiProperty({ description: 'Tài khoản đăng nhập' })
 	@IsString()
 	@IsNotEmpty()
-	username!: string;
+	email!: string;
 
 	/** Mật khẩu */
 	@ApiProperty({ description: 'Mật khẩu' })

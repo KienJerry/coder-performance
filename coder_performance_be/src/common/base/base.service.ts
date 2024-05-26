@@ -63,6 +63,7 @@ export abstract class BaseService<T extends BaseEntity> extends AbstractBaseServ
 
 	async getOneOrCreate(options: FindOptions<T>, data?: DeepPartial<T>): Promise<T>{
 		const entity = await this.getOne(options);
+
 		if (!entity){
 			if (!data){
 				throw new InternalServerErrorException('Missing creation data');

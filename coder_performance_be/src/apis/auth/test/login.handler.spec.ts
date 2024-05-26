@@ -35,5 +35,6 @@ describe('LoginHandler', () => {
 		const loginData = await handler.execute(loginCommand);
 		expect(loginData.accessToken).toBeDefined();
 		expect(loginData.expiresIn).toEqual(expiresIn);
+		// expect(loginData.refreshToken).toBeDefined();
 	});
 });

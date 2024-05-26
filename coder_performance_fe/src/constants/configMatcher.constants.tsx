@@ -1,4 +1,4 @@
-import * as cookie from "helper/cookie/cookieStore";
+import * as cookie from "@/helper/cookie/cookieStore";
 import * as Common from "@/common";
 
 export const ConfigMatcher = (type: boolean) => {
@@ -16,5 +16,5 @@ const RouterMatcher = (type: boolean) => {
   return { type, router: routerNotAuth };
 };
 
-export const routerAuth = ["/pages"];
+export const routerAuth = ["/profile"];
 export const routerNotAuth = ["/login", "/signup"];

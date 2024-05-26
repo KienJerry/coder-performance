@@ -46,15 +46,6 @@
       "interfaces/*": [
         "./src/interfaces/*"
       ],
-      "helper/*": [
-        "./src/helper/*"
-      ],
-      "common/*": [
-        "./src/common/*"
-      ],
-      "constants/*": [
-        "./src/constants/*"
-      ],
     },
     "plugins": [
       {

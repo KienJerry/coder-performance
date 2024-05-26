@@ -1,7 +1,6 @@
 import * as TypeCommon from "@/common";
-import type * as Interface from "interfaces/interfaces-helper/cookie-interfaces/cookie.interface";
+import type * as Interface from "@/interfaces/interfaces-helper/cookie-interfaces/cookie.interface";
 import Cookies from "js-cookie";
-import cookie from "cookie";
 
 // Create and Update
 export const __CreateDataCookie = (

@@ -17,7 +17,27 @@ export const ApiLogin = (userType: UserType) =>
 					data: {
 						properties: {
 							accessToken: { example: 'string' },
-							expiresIn: { example: 12345678 }
+							expiresIn: { example: 12345678 },
+							refreshToken: { example: 'string' }
+						}
+					}
+				}
+			}
+		})
+	);
+
+export const ApiRefreshToken = (userType: UserType) =>
+	applyDecorators(
+		ApiOperation({ summary: `Lấy token mới cho ${userType}` }),
+		ApiOkResponse({
+			schema: {
+				properties: {
+					...getBaseProperties(200),
+					data: {
+						properties: {
+							accessToken: { example: 'string' },
+							expiresIn: { example: 12345678 },
+							refreshToken: { example: 'string' }
 						}
 					}
 				}

@@ -18,9 +18,9 @@ import { Book1707635652785 } from './migrations/1707635652785-book';
 				schema: configService.get<string>('DB_SCHEMA'),
 				autoLoadEntities: true,
 				migrationsTableName: `migrations`,
-				migrations: [User1706412751363, Book1707635652785],
+				// migrations: [User1706412751363, Book1707635652785],
 				migrationsRun: true,
-				synchronize: false
+				synchronize: true
 			})
 		})
 	]

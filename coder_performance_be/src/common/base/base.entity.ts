@@ -1,14 +1,15 @@
-import { ApiProperty } from '@nestjs/swagger';
+import { ApiProperty, ApiHideProperty } from '@nestjs/swagger';
 import {
 	Column,
 	CreateDateColumn,
 	DeleteDateColumn,
 	PrimaryGeneratedColumn,
-	BaseEntity as TypeormBaseEntity,
+	BaseEntity as TypeOrmBaseEntity,
 	UpdateDateColumn
 } from 'typeorm';
+import { Exclude } from 'class-transformer';
 
-export class BaseEntity extends TypeormBaseEntity {
+export class BaseEntity extends TypeOrmBaseEntity {
 	/** uuid */
 	@ApiProperty({ description: 'uuid' })
 	@PrimaryGeneratedColumn('uuid')
@@ -30,7 +31,8 @@ export class BaseEntity extends TypeormBaseEntity {
 	deletedAt?: Date | null;
 
 	/** Kích hoạt */
-	@ApiProperty({ description: 'Kích hoạt' })
 	@Column({ default: true })
+	@Exclude()
+	@ApiHideProperty()
 	isActive!: boolean;
 }

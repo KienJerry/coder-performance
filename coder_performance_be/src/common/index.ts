@@ -9,6 +9,8 @@ export * from './decorators/user.decorator';
 export * from './decorators/validation.decorator';
 
 export * from './enums/language.enum';
+export * from './enums/account-type.enum';
+export * from './enums/gender.enum';
 
 export * from './filters/typeorm.filter';
 

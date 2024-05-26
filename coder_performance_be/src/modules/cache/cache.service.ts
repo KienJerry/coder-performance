@@ -17,13 +17,13 @@ export class CacheService extends ICacheService {
 		await this.del(key);
 		return this.redis.setnx(key, value);
 	}
-	get(key: string): Promise<string | null> {
+	async get(key: string): Promise<string | null> {
 		return this.redis.get(key);
 	}
-	del(key: string) {
+	async del(key: string) {
 		return this.redis.del(key);
 	}
-	keys(prefix: string) {
+	async keys(prefix: string) {
 		return this.redis.keys(`${prefix}:*`);
 	}
 }

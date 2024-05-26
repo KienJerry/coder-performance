@@ -6,6 +6,8 @@ declare global {
 
 	type UserJwtPayload = {
 		id: string;
+		role?: number | undefined;
+		refreshId?: number | string;
 	};
 	type JwtPayload = UserJwtPayload;
 }

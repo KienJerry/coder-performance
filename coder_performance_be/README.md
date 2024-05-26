@@ -72,3 +72,12 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 ## License
 
 Nest is [MIT licensed](LICENSE).
+
+
+Run redis local:
+1: open ubuntu 22.04.3 LTS
+2: redis-cli -v 
+3: sudo service redis-server start
+3.5: pass: convinh_1230
+4: redis-cli
+5: ping // nếu redis phản hồi PONG -> success

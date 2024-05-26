@@ -34,7 +34,7 @@ describe('UpdateUserByIdHandler', () => {
 		const mockUpdateUserByIdCommand = new UpdateUserByIdCommand({
 			id: uuidv4(),
 			data: {
-				username: 'username',
+				email: 'email',
 				password: 'password'
 			}
 		});

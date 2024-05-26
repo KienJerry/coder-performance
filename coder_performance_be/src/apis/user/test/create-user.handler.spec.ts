@@ -32,7 +32,7 @@ describe('CreateUserHandler', () => {
 	it('should call userService.create with the provided data', async () => {
 		const mockCreateUserCommand = new CreateUserCommand({
 			data: {
-				username: 'username',
+				email: 'email',
 				password: 'password'
 			}
 		});

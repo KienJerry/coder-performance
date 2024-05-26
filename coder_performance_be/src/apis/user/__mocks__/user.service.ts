@@ -6,7 +6,7 @@ import { UpdateUserByIdDto } from '../dto/update-user-by-id.dto';
 export const UserService = jest.fn().mockReturnValue({
 	create: jest.fn((dto: CreateUserDto) => ({
 		id: uuidv4(),
-		username: dto.username,
+		email: dto.email,
 		password: dto.password,
 		createdAt: new Date(),
 		updatedAt: new Date()
@@ -15,14 +15,14 @@ export const UserService = jest.fn().mockReturnValue({
 		const data = [
 			{
 				id: uuidv4(),
-				username: 'user1',
+				email: 'user1',
 				password: 'password1',
 				createdAt: new Date(),
 				updatedAt: new Date()
 			},
 			{
 				id: uuidv4(),
-				username: 'user2',
+				email: 'user2',
 				password: 'password2',
 				createdAt: new Date(),
 				updatedAt: new Date()
@@ -43,14 +43,14 @@ export const UserService = jest.fn().mockReturnValue({
 	}),
 	getOneByIdOrFail: jest.fn((id: string) => ({
 		id,
-		username: 'username',
+		email: 'email',
 		password: 'password',
 		createdAt: new Date(),
 		updatedAt: new Date()
 	})),
 	softRemoveById: jest.fn((id: string) => ({
 		id,
-		username: 'username',
+		email: 'email',
 		password: 'password',
 		createdAt: new Date(),
 		updatedAt: new Date()
@@ -61,16 +61,16 @@ export const UserService = jest.fn().mockReturnValue({
 		createdAt: new Date(),
 		updatedAt: new Date()
 	})),
-	validateUserByUsernamePassword: jest.fn((username: string, password: string) => ({
+	validateUserByUsernamePassword: jest.fn((email: string, password: string) => ({
 		id: uuidv4(),
-		username,
+		email,
 		password,
 		createdAt: new Date(),
 		updatedAt: new Date()
 	})),
 	validateUserById: jest.fn((id: string) => ({
 		id,
-		username: 'username',
+		email: 'email',
 		password: 'password',
 		createdAt: new Date(),
 		updatedAt: new Date()

@@ -11,7 +11,7 @@ const mockUserRepository = jest.fn(() => ({
 	findOne: jest.fn(async (options: FindOptions<UserEntity>) => {
 		if (
 			options.where &&
-			(options.where['username'] === 'user1' || options.where['id'] === '1')
+			(options.where['email'] === 'user1' || options.where['id'] === '1')
 		) {
 			return null;
 		}
@@ -24,7 +24,7 @@ const mockUserRepository = jest.fn(() => ({
 			updatedAt: new Date(),
 			deletedAt: null,
 			isActive: true,
-			username: 'user',
+			email: 'user',
 			password: hashedPassword
 		};
 	})

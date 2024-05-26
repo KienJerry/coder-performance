@@ -1,5 +1,5 @@
-import * as TypeCommon from "common/type-common/type.common";
-import type * as Interface from "interfaces/interfaces-helper/local-interfaces/ILocalStorage.interface";
+import * as TypeCommon from "@/common/type-common/type.common";
+import type * as Interface from "@/interfaces/interfaces-helper/local-interfaces/ILocalStorage.interface";
 
 // Create and Update
 export const __CreateDataLocal = (
