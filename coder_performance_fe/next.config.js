@@ -3,7 +3,7 @@ import i18nConfig from "./i18n.config.js";
 const i18n = i18nConfig.i18n;
 const nextConfig = {
   images: {
-    domains: ["www.learnupon.com"],
+    domains: ["zozo.vn", "example.com"],
   },
   trailingSlash: false,
   webpack(config) {

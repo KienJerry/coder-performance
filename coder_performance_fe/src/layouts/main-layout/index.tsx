@@ -1,9 +1,12 @@
-import React from "react";
+import dynamic from 'next/dynamic'
 import { Main } from "./main";
 import { Footer } from "./footer";
-import { Header } from "./header";
 
-// const Header = dynamic(() => import('./header').then((mod) => mod.Header), {
+const DynamicHeader = dynamic(() => import('./header').then((mod) => mod.Header), {
+  ssr: false,
+});
+
+// const DynamicHomePage = dynamic(() => import('./header'), {
 //   ssr: false,
 // })
 
@@ -18,7 +21,7 @@ export const MainLayout: React.FC<TProps> = ({
 }) => {
   return (
     <body>
-      <Header />
+      <DynamicHeader />
       <Main>{children}</Main>
       <Footer />
     </body>

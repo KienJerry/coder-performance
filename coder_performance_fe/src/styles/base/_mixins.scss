@@ -21,6 +21,24 @@ $desktop-width: 1025px;
   }
 }
 
+@mixin max($value) {
+  @media screen and (max-width: $value) {
+      @content;
+  }
+}
+
+@mixin min-max($min, $max) {
+  @media (min-width: $min) and (max-width: $max) {
+      @content;
+  }
+}
+
+@mixin min($value) {
+  @media screen and (min-width: $value) {
+      @content;
+  }
+}
+
 @mixin window-width-between($min-width, $max-width) {
   @if $min-width > $max-width {
     // if the arguments are entered in wrong order, fix it
