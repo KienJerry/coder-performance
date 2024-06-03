@@ -89,7 +89,7 @@ export default function Home({ params, searchParams }: Props) {
   return (
     <MainLayout>
       <div>div</div>
-      <Link href="/pages/10">123</Link>
+      {/* <Link href="/pages/10">123</Link> */}
        <h1>{t("title")}</h1>;
     </MainLayout>
   );

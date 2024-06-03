@@ -1,8 +1,12 @@
 export default function NotFound() {
   return (
-    <div>
-      <h2>Not Found</h2>
-      <p>Could not find requested resource</p>
-    </div>
+    <html>
+      <body className="text-center">
+        <div>
+          <h2>Not Found</h2>
+          <p>Could not find requested resource</p>
+        </div>
+      </body>
+    </html>
   );
 }

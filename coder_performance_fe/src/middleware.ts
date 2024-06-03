@@ -18,9 +18,8 @@ export function middleware(request: NextRequest) {
 
   // Handle i18n middleware
   const intlResponse = intlMiddleware(request);
-  if (intlResponse) {
-    return intlResponse;
-  }
+  if (intlResponse) return intlResponse;
+
   return NextResponse.next();
 }
 
