@@ -11,8 +11,6 @@ export type ImageNextJSProps = Omit<RImageProps, "alt"> & {
 export const ImageNextJS = ({ className, ...props }: ImageNextJSProps) => {
   return (
     <RImage
-      width={300}
-      height={300}
       className={classNames(className)}
       alt=""
       loading="lazy"

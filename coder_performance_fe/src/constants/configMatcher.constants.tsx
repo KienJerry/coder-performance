@@ -12,9 +12,12 @@ export const ConfigMatcher = (type: boolean) => {
 };
 
 const RouterMatcher = (type: boolean) => {
-  if (type) return { type, router: routerAuth };
-  return { type, router: routerNotAuth };
+  if (type) return { type, router: routerPage.routerAuth };
+  return { type, router: routerPage.routerNotAuth };
 };
 
-export const routerAuth = ["/profile"];
-export const routerNotAuth = ["/login", "/signup"];
+export const routerPage = {
+  routerAuth: ["/profile"],
+  routerNotAuth: ["/login", "/signUp"],
+  routerApp: ["/"],
+};

@@ -1,9 +1,15 @@
-import i18nConfig from "./i18n.config.js";
+import createNextIntlPlugin from "next-intl/plugin";
 
-const i18n = i18nConfig.i18n;
+const withNextIntl = createNextIntlPlugin();
+
 const nextConfig = {
   images: {
-    domains: ["zozo.vn", "example.com"],
+    remotePatterns: [
+      {
+        protocol: "https", // or http
+        hostname: "zozo.vn", // if your website has no www, drop it
+      },
+    ],
   },
   trailingSlash: false,
   webpack(config) {
@@ -36,7 +42,6 @@ const nextConfig = {
     });
     return config;
   },
-  i18n,
 };
 
-export default nextConfig;
+export default withNextIntl(nextConfig);

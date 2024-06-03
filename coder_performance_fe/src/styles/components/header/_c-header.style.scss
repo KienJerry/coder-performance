@@ -1,8 +1,7 @@
 .wrapper-header {
-  display: flex;
+  @include flex(row, center, space-between);
 
   .img-logo {
-    width: rem(105) !important;
     object-fit: cover;
   }
 }

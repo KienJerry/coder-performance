@@ -1,14 +1,21 @@
-import dynamic from 'next/dynamic'
+import dynamic from "next/dynamic";
 import { Main } from "./main";
-import { Footer } from "./footer";
+import React from "react";
 
-const DynamicHeader = dynamic(() => import('./header').then((mod) => mod.Header), {
-  ssr: false,
-});
-
-// const DynamicHomePage = dynamic(() => import('./header'), {
-//   ssr: false,
-// })
+const DynamicHeader = dynamic(
+  () => import("./header").then((mod) => mod.Header),
+  {
+    ssr: true,
+    loading: () => <p>Loading Header...</p>,
+  }
+);
+const DynamicFooter = dynamic(
+  () => import("./footer").then((mod) => mod.Footer),
+  {
+    ssr: true,
+    loading: () => <p>Loading Footer...</p>,
+  }
+);
 
 type TProps = {
   breadcrumb?: string;
@@ -16,15 +23,12 @@ type TProps = {
   children?: React.ReactNode | any;
 };
 
-export const MainLayout: React.FC<TProps> = ({
-  children,
-}) => {
+export const MainLayout: React.FC<TProps> = ({ children }) => {
   return (
-    <body>
+    <React.Fragment>
       <DynamicHeader />
       <Main>{children}</Main>
-      <Footer />
-    </body>
+      <DynamicFooter />
+    </React.Fragment>
   );
 };
-

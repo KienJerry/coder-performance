@@ -1,12 +1,14 @@
 import { ImageNextJS } from "@/components/global/Image";
 import Link from "next/link";
-
+import { routerPage } from "@/constants/configMatcher.constants";
 export const Header = () => {
   return (
-    <header className="app-container">
+    <header className="app-container header">
       <div className="container wrapper-header">
-        <Link href={"/"}>
+        <Link href={`${routerPage.routerApp[0]}`}>
           <ImageNextJS
+            width={105}
+            height={45}
             className="img-logo"
             src={"https://zozo.vn/public/theme/touched/images/logo/logo.png"}
             alt="Coder Performance"
@@ -28,6 +30,7 @@ export const Header = () => {
             </li>
           </ul>
         </nav>
+        <Link href={`${routerPage.routerNotAuth[0]}`}>Đăng Nhập</Link>
       </div>
     </header>
   );
