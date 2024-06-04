@@ -1,6 +1,5 @@
 import dynamic from "next/dynamic";
 import { Main } from "./main";
-import React from "react";
 
 const DynamicHeader = dynamic(
   () => import("./header").then((mod) => mod.Header),
@@ -25,10 +24,10 @@ type TProps = {
 
 export const MainLayout: React.FC<TProps> = ({ children }) => {
   return (
-    <React.Fragment>
+    <body>
       <DynamicHeader />
       <Main>{children}</Main>
       <DynamicFooter />
-    </React.Fragment>
+    </body>
   );
 };

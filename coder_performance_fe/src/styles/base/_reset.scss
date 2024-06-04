@@ -2,7 +2,6 @@
 html {
   font-style: normal;
   font-family: "Be Vietnam Pro", sans-serif;
-  font-family: "Roboto", sans-serif;
 }
 
 body {
@@ -38,6 +37,10 @@ ul {
   margin-inline-start: 0px;
   margin-inline-end: 0px;
   padding-inline-start: 0px;
+
+  li {
+    list-style-type: none;
+  }
 }
 
 // ::-webkit-scrollbar {

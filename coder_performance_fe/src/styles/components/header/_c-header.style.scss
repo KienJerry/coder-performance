@@ -1,7 +1,28 @@
 .wrapper-header {
-  @include flex(row, center, space-between);
+  @include flex(row, center, space-between, rem(20));
+  box-shadow: 0 20px 30px rgb(0 0 0 / 5%);
+  border-bottom: 2px solid #f6f6f6;
 
   .img-logo {
     object-fit: cover;
+  }
+
+  .txt-login {
+    color: $black-1f2;
+    font-size: rem(16);
+    font-weight: $font-weight-700;
+
+    &:hover {
+      color: $orange-ff7;
+    }
+  }
+
+  >nav {
+    flex: 1;
+    padding: rem(25) 0;
+
+    ul {
+      @include flex(row, center, flex-start, rem(20));
+    }
   }
 }

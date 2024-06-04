@@ -17,8 +17,8 @@ export function middleware(request: NextRequest) {
   }
 
   // Handle i18n middleware
-  const intlResponse = intlMiddleware(request);
-  if (intlResponse) return intlResponse;
+  // const intlResponse = intlMiddleware(request);
+  // if (intlResponse) return intlResponse;
 
   return NextResponse.next();
 }
@@ -37,26 +37,26 @@ const handleAuthentication = (request: NextRequest): boolean => {
 
 export const config = {
   matcher: [
-    "/((?!api|_next/static|_next/image|favicon.ico).*)", // doesn't check middleware
+    // "/((?!api|_next/static|_next/image|favicon.ico).*)", // doesn't check middleware
     // { source: "/(vi|en)/:path*" }, //Check all middleware
-    // {
-    //   source: "/(login|signup)/:path*", // If authToken exists, will be able to access the following urls
-    //   has: [
-    //     {
-    //       type: "cookie",
-    //       key: "authToken",
-    //     },
-    //   ],
-    // },
-    // {
-    //   source: "/(profile)/:path*", // If authToken doesn't exist , will be able to access the following urls
-    //   missing: [
-    //     {
-    //       type: "cookie",
-    //       key: "authToken",
-    //     },
-    //   ],
-    // },
+    {
+      source: "/(login|signup)/:path*", // If authToken exists, will be able to access the following urls
+      has: [
+        {
+          type: "cookie",
+          key: "authToken",
+        },
+      ],
+    },
+    {
+      source: "/(profile)/:path*", // If authToken doesn't exist , will be able to access the following urls
+      missing: [
+        {
+          type: "cookie",
+          key: "authToken",
+        },
+      ],
+    },
   ],
 };
 
@@ -67,5 +67,5 @@ const checkPathName = (routes: string[], pathname: string): boolean => {
 
 const extractRootPath = (inputPath: string): string => {
   const segments = inputPath.split("/");
-  return segments.length > 2 ? `/${segments[2]}` : "/";
+  return segments.length > 1 ? `/${segments[1]}` : "/";
 };

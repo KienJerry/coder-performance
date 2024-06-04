@@ -12,9 +12,5 @@ export default async function LocaleLayout({
     locale: string;
   };
 }) {
-  return (
-    <html lang={locale}>
-      <body>{children}</body>
-    </html>
-  );
+  return <html lang={locale}>{children}</html>;
 }

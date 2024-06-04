@@ -88,7 +88,7 @@ export default function Home({ params, searchParams }: Props) {
   const t = useTranslations("IndexPage");
   return (
     <MainLayout>
-      <div>div</div>
+      <div>Page Home Dev</div>
       {/* <Link href="/pages/10">123</Link> */}
        <h1>{t("title")}</h1>;
     </MainLayout>
