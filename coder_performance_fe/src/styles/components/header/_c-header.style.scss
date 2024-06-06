@@ -2,6 +2,7 @@
   @include flex(row, center, space-between, rem(20));
   box-shadow: 0 20px 30px rgb(0 0 0 / 5%);
   border-bottom: 2px solid #f6f6f6;
+  height: rem(75);
 
   .img-logo {
     object-fit: cover;
@@ -19,10 +20,13 @@
 
   >nav {
     flex: 1;
-    padding: rem(25) 0;
 
-    ul {
+    >ul {
       @include flex(row, center, flex-start, rem(20));
+
+      >li {
+        @include flex(row, center, flex-start, rem(2));
+      }
     }
   }
 }

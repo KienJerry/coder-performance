@@ -88,7 +88,7 @@ export default function Home({ params, searchParams }: Props) {
     <MainLayout>
       <div>Page Home Dev</div>
       {/* <Link href="/pages/10">123</Link> */}
-       <h1>HEHEEH</h1>;
+      <h1>HEHEEH</h1>
     </MainLayout>
   );
 }

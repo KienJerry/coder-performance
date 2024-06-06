@@ -1,4 +1,4 @@
-import * as TypeCommon from "@/common/type-common/type.common";
+import * as TypeCommon from "@/constants/type-constants/type.constants";
 import type * as Interface from "@/interfaces/interfaces-helper/local-interfaces/ILocalStorage.interface";
 
 // Create and Update

@@ -1,4 +1,4 @@
-import * as TypeCommon from "@/common";
+import * as TypeCommon from "@/constants";
 import type * as Interface from "@/interfaces/interfaces-helper/cookie-interfaces/cookie.interface";
 import Cookies from "js-cookie";
 
@@ -15,14 +15,14 @@ export const __CreateDataCookie = (
     secure: custom?.secure,
   };
   switch (type) {
-    case TypeCommon.TYPE_COMMON.DATA_TYPES.OBJECT: {
+    case TypeCommon.TYPE_CONSTANTS.DATA_TYPES.OBJECT: {
       return;
     }
-    case TypeCommon.TYPE_COMMON.DATA_TYPES.STRING: {
+    case TypeCommon.TYPE_CONSTANTS.DATA_TYPES.STRING: {
       Cookies.set(key, data, cookieOptions);
       return;
     }
-    case TypeCommon.TYPE_COMMON.DATA_TYPES.ARRAY: {
+    case TypeCommon.TYPE_CONSTANTS.DATA_TYPES.ARRAY: {
       return;
     }
     default:
@@ -32,13 +32,13 @@ export const __CreateDataCookie = (
 // Read
 export const __getDataCookie = (props: Interface.ICreateCookieType) => {
   switch (props.type) {
-    case TypeCommon.TYPE_COMMON.DATA_TYPES.STRING: {
+    case TypeCommon.TYPE_CONSTANTS.DATA_TYPES.STRING: {
       return Cookies.get(props?.key);
     }
-    case TypeCommon.TYPE_COMMON.DATA_TYPES.OBJECT: {
+    case TypeCommon.TYPE_CONSTANTS.DATA_TYPES.OBJECT: {
       return;
     }
-    case TypeCommon.TYPE_COMMON.DATA_TYPES.ARRAY: {
+    case TypeCommon.TYPE_CONSTANTS.DATA_TYPES.ARRAY: {
       return;
     }
     default:

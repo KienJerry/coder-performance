@@ -1,13 +1,15 @@
 import dynamic from "next/dynamic";
 import { Main } from "./main";
+import HeaderSkeleton from "@/layouts/main-layout/header/skeleton";
 
 const DynamicHeader = dynamic(
   () => import("./header").then((mod) => mod.Header),
   {
-    ssr: true,
-    loading: () => <p>Loading Header...</p>,
+    ssr: false,
+    loading: () => <HeaderSkeleton />,
   }
 );
+
 const DynamicFooter = dynamic(
   () => import("./footer").then((mod) => mod.Footer),
   {

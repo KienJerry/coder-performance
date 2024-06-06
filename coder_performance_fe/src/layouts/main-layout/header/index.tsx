@@ -1,7 +1,12 @@
+"use client";
 import { ImageNextJS } from "@/components/global/Image";
 import Link from "next/link";
 import { routerPage } from "@/constants/configMatcher.constants";
+import * as Constants from "@/constants";
+import useWindowSize from "@/helper/screens/detectScreen.constants";
+
 export const Header = () => {
+  const { isML } = useWindowSize();
   return (
     <header className="app-container header">
       <div className="container wrapper-header">
@@ -14,18 +19,24 @@ export const Header = () => {
             alt="Coder Performance"
           />
         </Link>
-        <nav>
-          <ul>
-            {dataMenu?.map((val) => {
-              return (
-                <li key={val.slug}>
-                  <a href={`${val?.slug}`}>{val?.name}</a>
-                  <i className="fa-solid fa-chevron-right"></i>
-                </li>
-              );
-            })}
-          </ul>
-        </nav>
+        {!isML ? (
+          <nav>
+            <ul>
+              {dataMenu?.map((val) => {
+                return (
+                  <li key={val.slug}>
+                    <a href={`${val?.slug}`}>{val?.name}</a>
+                    <div style={{ width: "10px" }}>
+                      {Constants.ICON_CONSTANTS.ICON_KEY.down}
+                    </div>
+                  </li>
+                );
+              })}
+            </ul>
+          </nav>
+        ) : (
+          <div>111</div>
+        )}
         <Link className="txt-login" href={`${routerPage.routerNotAuth[0]}`}>
           Đăng Nhập
         </Link>
@@ -33,7 +44,6 @@ export const Header = () => {
     </header>
   );
 };
-
 const dataMenu = [
   {
     slug: "website",
