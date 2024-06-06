@@ -1,12 +1,12 @@
 import * as cookie from "@/helper/cookie/cookieStore";
-import * as Common from "@/common";
+import * as Constants from "@/constants";
 
 export const ConfigMatcher = (type: boolean) => {
   return RouterMatcher(
     type ||
       !!cookie.__getDataCookie({
-        type: Common.TYPE_COMMON.DATA_TYPES.STRING,
-        key: Common.COOKIE_COMMON.COOKIE_KEYS.AUTH_TOKEN,
+        type: Constants.TYPE_CONSTANTS.DATA_TYPES.STRING,
+        key: Constants.COOKIE_CONSTANTS.COOKIE_KEYS.AUTH_TOKEN,
       })
   );
 };
