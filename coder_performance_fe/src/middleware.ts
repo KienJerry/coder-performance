@@ -2,7 +2,7 @@ import createIntlMiddleware from "next-intl/middleware";
 
 import { NextRequest, NextResponse } from "next/server";
 import { routerPage } from "@/constants/configMatcher.constants";
-import * as Common from "@/common";
+import * as Constants from "@/constants";
 import { locales, defaultLocale } from "@/i18n";
 
 const intlMiddleware = createIntlMiddleware({
@@ -25,7 +25,7 @@ export function middleware(request: NextRequest) {
 
 const handleAuthentication = (request: NextRequest): boolean => {
   const hasAuthToken = !!request.cookies.get(
-    Common.COOKIE_COMMON.COOKIE_KEYS.AUTH_TOKEN
+    Constants.COOKIE_CONSTANTS.COOKIE_KEYS.AUTH_TOKEN
   );
   const pathName = request.nextUrl.pathname;
   const routesToCheck = hasAuthToken
