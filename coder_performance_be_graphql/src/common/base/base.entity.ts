@@ -33,7 +33,7 @@ export class BaseEntity extends TypeormBaseEntity {
 	@Field({ description: 'Ngày xoá', nullable: true })
 	@ApiProperty({ description: 'Ngày xoá' })
 	@DeleteDateColumn()
-	deletedAt?: Date | null;
+	deletedAt?: Date;
 
 	/** Kích hoạt */
 	@Field({ description: 'Kích hoạt' })
